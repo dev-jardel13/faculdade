@@ -146,3 +146,5 @@ int main() {
 
     return 0;
 }
+// Codigo feito para aprendizado criando um sistema de inventário simples para um jogo de RPG. 
+// O código permite ao usuário listar, inserir, remover e buscar itens em uma mochila. Cada item tem um nome, tipo e quantidade. O programa utiliza um array para armazenar os itens e funções para manipular o inventário.

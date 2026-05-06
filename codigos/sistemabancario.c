@@ -1,15 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #define MAX 100
 
-// Estrutura para representar a conta bancaria
 typedef struct {
-
     char nome[50];
     int numeroConta;
     float saldo;
 } ContaBancaria;
+
 
 
 void criarConta(ContaBancaria contas[], int *total) {
@@ -22,6 +22,12 @@ void criarConta(ContaBancaria contas[], int *total) {
 
     printf("Nome do titular: ");
     scanf(" %[^\n]", contas[*total].nome);
+
+    
+    if (strlen(contas[*total].nome) == 0) {
+        printf("Nome invalido!\n");
+        return;
+    }
 
     printf("Numero da conta: ");
     scanf("%d", &contas[*total].numeroConta);
@@ -36,6 +42,7 @@ void criarConta(ContaBancaria contas[], int *total) {
 }
 
 
+
 int buscarConta(ContaBancaria contas[], int total, int numero) {
     for (int i = 0; i < total; i++) {
         if (contas[i].numeroConta == numero) {
@@ -44,6 +51,7 @@ int buscarConta(ContaBancaria contas[], int total, int numero) {
     }
     return -1;
 }
+
 
 
 void depositar(ContaBancaria contas[], int total) {
@@ -73,6 +81,7 @@ void depositar(ContaBancaria contas[], int total) {
     contas[i].saldo += valor;
     printf("Deposito realizado com sucesso!\n");
 }
+
 
 
 void sacar(ContaBancaria contas[], int total) {
@@ -108,6 +117,7 @@ void sacar(ContaBancaria contas[], int total) {
 }
 
 
+
 void consultarSaldo(ContaBancaria contas[], int total) {
     int numero;
 
@@ -128,6 +138,7 @@ void consultarSaldo(ContaBancaria contas[], int total) {
 }
 
 
+
 void listarContas(ContaBancaria contas[], int total) {
     printf("\n----- LISTA DE CONTAS -----\n");
 
@@ -144,7 +155,8 @@ void listarContas(ContaBancaria contas[], int total) {
     }
 }
 
-// Criei o Menu do Sistema Bancario
+
+
 void menu() {
     printf("\n==============================\n");
     printf("     SISTEMA BANCARIO\n");
@@ -159,7 +171,8 @@ void menu() {
     printf("Opcao: ");
 }
 
-// Int main/ Padrao com switch case  que no caso seria o menu pro Usuario Interagir
+
+
 int main() {
     ContaBancaria contas[MAX];
     int total = 0;
